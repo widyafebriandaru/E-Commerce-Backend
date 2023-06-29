@@ -4,29 +4,28 @@ const morgan = require("morgan");
 const { append } = require("express/lib/response");
 const app = express();
 
-
-
 app.use(express.urlencoded());
 app.use(express.json());
 app.use(cors("*"));
 app.use(morgan("tiny"));
 
-const allProductsController = require('./controllers/allProductsController');
 const accessoriesController = require('./controllers/accessoriesController');
 const pantsController = require('./controllers/pantsController');
 const shirtController = require('./controllers/shirtController');
 const sweaterController = require('./controllers/sweaterController');
 const tshirtController = require('./controllers/t-shirtController');
 const detailProductsController = require('./controllers/detailProductsController')
+const allProducts = require('./router/allProductsRoute')
 
-app.use('/products', allProductsController);
 app.use('/products', accessoriesController);
 app.use('/products', pantsController);
 app.use('/products', shirtController);
 app.use('/products', sweaterController);
-app.use('/products', allProductsController);
 app.use('/products', tshirtController);
 app.use('/products', detailProductsController);
+app.use('/products', allProducts);
+
+
 
 app.listen(3001, () => {
   console.clear();
