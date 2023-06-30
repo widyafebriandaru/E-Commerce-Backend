@@ -16,3 +16,26 @@ Content-Type: application/json
 //FIND ALL USERS
 GET http://localhost:3001/users
 Content-Type: application/json
+
+###
+//FIND ALL USERS
+GET http://localhost:3001/users/3
+Content-Type: application/json
+
+###
+//UPDATE USER
+PATCH  http://localhost:3001/users/2
+Content-Type: application/json
+
+{
+    "fullName": "daradr",
+    "email": "Nh212aZulIshutin@gmail.com",
+    "password": "321321",
+    "phone": "12332145",
+    "confPassword": "321321",
+    "accountType": "customer"
+}
+
+###
+//DESTROY!!!
+DELETE http://localhost:3001/users/4
