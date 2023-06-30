@@ -15,15 +15,10 @@ const users = require('./router/userRoute')
 app.use('/products', products);
 app.use(users);
 
-
 app.listen(3001, () => {
   console.clear();
   console.debug("Server running on port http://localhost:3001");
 });
-
-
-
-
 
 
 

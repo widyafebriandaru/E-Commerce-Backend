@@ -52,19 +52,56 @@ const createUser = async(req, res) =>{
 
 //Update Existing User
 const updateUser = async(req, res) =>{
-  try {
-    
-  } catch (error) {
-    
-  }
+  const user = await db.User.findOne({
+    where:{
+      id: req.params.id
+    } 
+  })
+ if(!user) return res.status(404).json({msg: "User tidak ditemukan"});
+    const {fullName, email, password, confPassword, accountType, phone} = req.body;
+    let hashPassword;
+    if(password === "" || password === null){
+        hashPassword = user.password
+    }else{
+        hashPassword = await argon2.hash(password);
+    }
+    if(password !== confPassword) return res.status(400).json({msg: "Password dan Confirm Password tidak cocok"});
+    try {
+        await db.User.update({
+            fullName: fullName,
+            email: email,
+            password: hashPassword,
+            accountType: accountType,
+            phone: phone
+        },{
+            where:{
+                id: user.id
+            }
+        });
+        res.status(200).json({msg: "User Updated"});
+    }
+     catch (error) {
+        res.status(400).json({msg: error.message});
+    }
 }
 
 //Delete Existing User
 const deleteUser = async(req, res) =>{
+  const user = await db.User.findOne({
+      where: {
+          id: req.params.id
+      }
+  });
+  if(!user) return res.status(404).json({msg: "User tidak ditemukan"});
   try {
-    
+      await db.User.destroy({
+          where:{
+              id: user.id
+          }
+      });
+      res.status(200).json({msg: "User Deleted"});
   } catch (error) {
-    
+      res.status(400).json({msg: error.message});
   }
 }
 

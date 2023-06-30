@@ -68,16 +68,6 @@ module.exports = (sequelize, DataTypes) => {
     thumbnailUrl3: {
       allowNull: false,
       type: DataTypes.STRING
-    },
-    createdAt: {
-      allowNull: false,
-      defaultValue: 'CURRENT_TIMESTAMP',
-      type: DataTypes.DATE
-    },
-    updatedAt: {
-      allowNull: false,
-      defaultValue:'CURRENT_TIMESTAMP',
-      type: DataTypes.DATE
     }
   }, {
     sequelize,
