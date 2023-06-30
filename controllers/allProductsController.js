@@ -3,7 +3,7 @@ const express = require('express');
 const { sequelize } = require("../models");
 const itemsPerPage = 2; // Number of items (columns) to display per page
 
-const allproducts = async (req, res) => {
+const getAllproducts = async (req, res) => {
   try {
     const page = parseInt(req.query.page || 1, 10); // Get the page number from the query parameter, default to 1 if not provided
 
@@ -24,4 +24,4 @@ const allproducts = async (req, res) => {
     }
 };
 
-module.exports = allproducts
+module.exports = getAllproducts

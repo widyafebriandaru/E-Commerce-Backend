@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { sequelize, DetailProduct } = require('../models');
 
-router.get('/detailProducts/:id', async (req, res) => {
+const getDetailProducts = async (req, res) => {
   const productId = req.params.id;
 
   try {
@@ -23,6 +23,6 @@ router.get('/detailProducts/:id', async (req, res) => {
     console.error('Error retrieving product:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
-});
+};
 
-module.exports = router;
+module.exports = getDetailProducts;
