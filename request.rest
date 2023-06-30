@@ -4,12 +4,12 @@ POST http://localhost:3001/users
 Content-Type: application/json
 
 {
-    "fullName": "daradr",
-    "email": "Nh212aZulIshutin@gmail.com",
+    "fullName": "tis",
+    "email": "daru@gmail.com",
     "password": "123321",
     "phone": "12332145",
     "confPassword": "123321",
-    "accountType": "customer"
+    "accountType": "admin"
 }
 
 ###
@@ -18,8 +18,8 @@ GET http://localhost:3001/users
 Content-Type: application/json
 
 ###
-//FIND ALL USERS
-GET http://localhost:3001/users/3
+//FIND SPECIFIC USER
+GET http://localhost:3001/users/5
 Content-Type: application/json
 
 ###
@@ -39,3 +39,14 @@ Content-Type: application/json
 ###
 //DESTROY!!!
 DELETE http://localhost:3001/users/4
+
+###
+//LOGIN USER
+
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{
+    "email": "daru@gmail.com",
+    "password": "123321"
+}

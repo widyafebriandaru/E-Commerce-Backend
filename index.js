@@ -3,17 +3,32 @@ const cors = require("cors");
 const morgan = require("morgan");
 const { append } = require("express/lib/response");
 const app = express();
+const session = require("express-session");
+const dotenv = require("dotenv")
+dotenv.config();
 
 app.use(express.urlencoded());
 app.use(express.json());
 app.use(cors("*"));
 app.use(morgan("tiny"));
 
+
+app.use(session({
+  secret: process.env.SESS_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+      secure: 'auto'
+  }
+}));
+
 const products = require('./router/productsRoute')
 const users = require('./router/userRoute')
+const authRoute = require("./router/authRoute")
 
 app.use('/products', products);
 app.use(users);
+app.use(authRoute);
 
 app.listen(3001, () => {
   console.clear();
