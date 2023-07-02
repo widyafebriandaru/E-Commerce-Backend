@@ -4,7 +4,11 @@ const morgan = require("morgan");
 const { append } = require("express/lib/response");
 const app = express();
 const session = require("express-session");
-const dotenv = require("dotenv")
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const dotenv = require("dotenv");
+const db = require('./models');
+const { sequelize } = require("./models");
+
 dotenv.config();
 
 app.use(express.urlencoded());
@@ -12,15 +16,21 @@ app.use(express.json());
 app.use(cors("*"));
 app.use(morgan("tiny"));
 
-
 app.use(session({
   secret: process.env.SESS_SECRET,
   resave: false,
   saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+    tableName: 'Sessions'
+  }),
   cookie: {
       secure: 'auto'
   }
 }));
+
+
+
 
 const products = require('./router/productsRoute')
 const users = require('./router/userRoute')

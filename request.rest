@@ -50,3 +50,12 @@ Content-Type: application/json
     "email": "daru@gmail.com",
     "password": "123321"
 }
+
+###
+//ME
+GET http://localhost:3001/me
+
+
+###
+//LOGOUT
+DELETE http://localhost:3001/logout
