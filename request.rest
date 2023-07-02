@@ -4,12 +4,12 @@ POST http://localhost:3001/users
 Content-Type: application/json
 
 {
-    "fullName": "tis",
-    "email": "daru@gmail.com",
+    "fullName": "nyx",
+    "email": "urad@gmail.com",
     "password": "123321",
     "phone": "12332145",
     "confPassword": "123321",
-    "accountType": "admin"
+    "accountType": "customer"
 }
 
 ###
@@ -41,13 +41,23 @@ Content-Type: application/json
 DELETE http://localhost:3001/users/4
 
 ###
-//LOGIN USER
+//LOGIN USER ADMIN
 
 POST http://localhost:3001/login
 Content-Type: application/json
 
 {
     "email": "daru@gmail.com",
+    "password": "123321"
+}
+###
+//LOGIN USER CUSTOMER
+
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{
+    "email": "urad@gmail.com",
     "password": "123321"
 }
 

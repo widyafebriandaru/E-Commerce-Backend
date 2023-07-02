@@ -6,8 +6,8 @@ const app = express();
 const session = require("express-session");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const dotenv = require("dotenv");
-const db = require('./models');
 const { sequelize } = require("./models");
+
 
 dotenv.config();
 
@@ -28,9 +28,6 @@ app.use(session({
       secure: 'auto'
   }
 }));
-
-
-
 
 const products = require('./router/productsRoute')
 const users = require('./router/userRoute')
