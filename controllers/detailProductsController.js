@@ -4,7 +4,6 @@ const { sequelize, DetailProduct } = require('../models');
 
 const getDetailProducts = async (req, res) => {
   const productId = req.params.id;
-
   try {
     const [product] = await sequelize.query(
       'SELECT * FROM detailProducts WHERE id = :productId;',
