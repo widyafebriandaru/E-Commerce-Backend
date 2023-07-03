@@ -13,7 +13,10 @@ dotenv.config();
 
 app.use(express.urlencoded());
 app.use(express.json());
-app.use(cors("*"));
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:5173'
+}));
 app.use(morgan("tiny"));
 
 app.use(session({
