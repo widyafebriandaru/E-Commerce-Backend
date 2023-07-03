@@ -121,3 +121,8 @@ Content-Type: application/json
   "thumbnailUrl2": "https://www.screamous.com/cdn/shop/files/id-11134207-7qul9-lhod21kyh7is97_150x.jpg?v=1686046808",
   "thumbnailUrl3": "https://www.screamous.com/cdn/shop/files/id-11134207-7qul1-lhod21kyfsyc26_150x.jpg?v=1686046806"
 }
+
+###
+///DELETE PRODUCT
+DELETE http://localhost:3001/products/allProducts/56
+Content-Type: application/json
