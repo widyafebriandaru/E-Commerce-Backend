@@ -35,10 +35,12 @@ app.use(session({
 const products = require('./router/productsRoute')
 const users = require('./router/userRoute')
 const authRoute = require("./router/authRoute")
+const orders = require("./router/orderRoute")
 
 app.use('/products', products);
 app.use(users);
 app.use(authRoute);
+app.use(orders);
 
 app.listen(3001, () => {
   console.clear();

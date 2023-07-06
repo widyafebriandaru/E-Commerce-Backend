@@ -57,7 +57,7 @@ POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-    "email": "urad@gmail.com",
+    "email": "123@gmail.com",
     "password": "123321"
 }
 
@@ -125,4 +125,42 @@ Content-Type: application/json
 ###
 ///DELETE PRODUCT
 DELETE http://localhost:3001/products/allProducts/56
+Content-Type: application/json
+
+
+
+
+
+
+
+
+
+
+###
+//CREATE ORDER
+
+POST http://localhost:3001/orders
+Content-Type: application/json
+
+{
+    "user_id": "15",
+    "detail_id": "15"
+}
+
+###
+//GET ALL ORDER
+
+GET http://localhost:3001/orders
+Content-Type: application/json
+
+###
+//GET SPECIFIC ORDER
+
+GET http://localhost:3001/orders/1
+Content-Type: application/json
+
+###
+//DELETE ORDER
+
+DELETE  http://localhost:3001/orders/8
 Content-Type: application/json
