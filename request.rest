@@ -1,0 +1,128 @@
+
+//CREATE USER
+POST http://localhost:3001/users
+Content-Type: application/json
+
+{
+    "fullName": "nyx",
+    "email": "urad@gmail.com",
+    "password": "123321",
+    "phone": "12332145",
+    "confPassword": "123321",
+    "accountType": "customer"
+}
+
+###
+//FIND ALL USERS
+GET http://localhost:3001/users
+Content-Type: application/json
+
+###
+//FIND SPECIFIC USER
+GET http://localhost:3001/users/5
+Content-Type: application/json
+
+###
+//UPDATE USER
+PATCH  http://localhost:3001/users/2
+Content-Type: application/json
+
+{
+    "fullName": "daradr",
+    "email": "Nh212aZulIshutin@gmail.com",
+    "password": "321321",
+    "phone": "12332145",
+    "confPassword": "321321",
+    "accountType": "customer"
+}
+
+###
+//DESTROY!!!
+DELETE http://localhost:3001/users/14
+
+###
+//LOGIN USER ADMIN
+
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{
+    "email": "daru@gmail.com",
+    "password": "123321"
+}
+###
+//LOGIN USER CUSTOMER
+
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{
+    "email": "urad@gmail.com",
+    "password": "123321"
+}
+
+###
+//ME
+GET http://localhost:3001/me
+
+
+###
+//LOGOUT
+DELETE http://localhost:3001/logout
+
+
+###
+// FIND ALL PRODUCTS
+GET http://localhost:3001/products/allProducts
+
+### FIND PRODUCTS
+GET http://localhost:3001/products/pants
+
+###
+//CREATE PRODUCT
+POST http://localhost:3001/products/allProducts
+Content-Type: application/json
+
+{
+  "detailName": "1s",
+  "discount": 50,
+  "description": "ini adalah celana",
+  "review": "wow celana ini amazing",
+  "rating": 5,
+  "product_quote_S": 12,
+  "product_quote_L": 12,
+  "product_quote_XL": 12,
+  "initialPrice": 200000,
+  "category": "Pants",
+  "thumbnailPreview": "https://www.screamous.com/cdn/shop/files/id-11134207-7qukw-lhod21kyim3842_360x.jpg?v=1686046811",
+  "thumbnailUrl1": "https://www.screamous.com/cdn/shop/files/id-11134207-7qul7-lhod21kyft7tbd_150x.jpg?v=1686046800",
+  "thumbnailUrl2": "https://www.screamous.com/cdn/shop/files/id-11134207-7qul9-lhod21kyh7is97_150x.jpg?v=1686046808",
+  "thumbnailUrl3": "https://www.screamous.com/cdn/shop/files/id-11134207-7qul1-lhod21kyfsyc26_150x.jpg?v=1686046806"
+}
+
+###
+//UPDATE PRODUCT
+PATCH  http://localhost:3001/products/allProducts/58
+Content-Type: application/json
+
+{
+  "detailName": "CHANGED",
+  "discount": 50,
+  "description": "ini adalah celana",
+  "review": "wow celana ini amazing",
+  "rating": 5,
+  "product_quote_S": 12,
+  "product_quote_L": 12,
+  "product_quote_XL": 12,
+  "initialPrice": 200000,
+  "category": "Pants",
+  "thumbnailPreview": "https://www.screamous.com/cdn/shop/files/id-11134207-7qukw-lhod21kyim3842_360x.jpg?v=1686046811",
+  "thumbnailUrl1": "https://www.screamous.com/cdn/shop/files/id-11134207-7qul7-lhod21kyft7tbd_150x.jpg?v=1686046800",
+  "thumbnailUrl2": "https://www.screamous.com/cdn/shop/files/id-11134207-7qul9-lhod21kyh7is97_150x.jpg?v=1686046808",
+  "thumbnailUrl3": "https://www.screamous.com/cdn/shop/files/id-11134207-7qul1-lhod21kyfsyc26_150x.jpg?v=1686046806"
+}
+
+###
+///DELETE PRODUCT
+DELETE http://localhost:3001/products/allProducts/56
+Content-Type: application/json

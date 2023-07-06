@@ -3,7 +3,7 @@ const router = express.Router();
 const { sequelize } = require("../models");
 const itemsPerPage = 2; // Number of items (columns) to display per page
 
-router.get('/shirt', async (req, res) => {
+const getShirt = async (req, res) => {
   try {
     const page = parseInt(req.query.page || 1, 10); // Get the page number from the query parameter, default to 1 if not provided
 
@@ -22,6 +22,6 @@ router.get('/shirt', async (req, res) => {
       console.error('Error retrieving data:', error);
       res.status(500).json({ error: 'Internal server error' });
     }
-});
+};
 
-module.exports = router;
+module.exports = getShirt;

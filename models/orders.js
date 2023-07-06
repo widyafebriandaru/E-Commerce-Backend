@@ -37,20 +37,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
-    },
-    createdAt: {
-      allowNull: false,
-      defaultValue:'CURRENT_TIMESTAMP',
-      type: DataTypes.DATE
-    },
-    updatedAt: {
-      allowNull: false,
-      defaultValue:'CURRENT_TIMESTAMP',
-      type: DataTypes.DATE
     }
   }, {
     sequelize,
     modelName: 'orders',
+    timestamps: true,
   });
   return orders;
 };
