@@ -2,22 +2,24 @@ const express = require('express');
 const db = require('../models');
 const { sequelize } = require("../models");
 
-//GET ALL ORDERS
+//GET ALL ORDERS FROM 1 USER
 const getOrders = async (req, res) => {
+    const user_id = req.params.user_id; // Change 'id' to 'user_id'
     try {
-        const [order] = await sequelize.query(
-            "SELECT * FROM orders JOIN detailProducts ON orders.detail_id = detailProducts.id WHERE orders.user_id = user_id;"
-        );
-
-        return res.status(200).json({
-            data: order,
-          })
-        
-      } catch (error) {
-        console.error('Error retrieving data:', error);
-        res.status(500).json({ error: 'Internal server error' });
-      }
+      const [order] = await sequelize.query(
+        `SELECT * FROM orders JOIN detailProducts ON orders.detail_id = detailProducts.id WHERE orders.user_id = ${user_id};`
+      );
+  
+      return res.status(200).json({
+        data: order,
+      });
+    } catch (error) {
+      console.error('Error retrieving data:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
   };
+  
+  
 
   //GET SPECIFIC ORDER
   const getOrdersById = async (req, res) => {

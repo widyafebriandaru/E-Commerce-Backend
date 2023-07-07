@@ -8,8 +8,8 @@ const {
 const router = express.Router();
 const { verifyUser } = require("../middleware/authUser");
 
-router.get("/orders", getOrders);
-router.get("/orders/:id", verifyUser, getOrdersById);
+router.get("/orders/:user_id", getOrders);
+
 router.post("/orders",verifyUser, createOrder);
 router.delete("/orders/:id", verifyUser, deleteOrder);
 

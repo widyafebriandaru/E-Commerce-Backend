@@ -150,7 +150,7 @@ Content-Type: application/json
 ###
 //GET ALL ORDER
 
-GET http://localhost:3001/orders
+GET http://localhost:3001/orders/15
 Content-Type: application/json
 
 ###
