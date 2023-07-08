@@ -1,13 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
-const { append } = require("express/lib/response");
 const app = express();
 const session = require("express-session");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const dotenv = require("dotenv");
 const { sequelize } = require("./models");
-
 
 dotenv.config();
 
