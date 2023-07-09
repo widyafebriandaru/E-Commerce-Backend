@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { sequelize } = require("../models");
-const itemsPerPage = 2; // Number of items (columns) to display per page
+const itemsPerPage = 2; 
 
 const getSweater = async (req, res) => {
   try {
-    const page = parseInt(req.query.page || 1, 10); // Get the page number from the query parameter, default to 1 if not provided
+    const page = parseInt(req.query.page || 1, 10); 
 
-    // Calculate the offset based on the page number and items per page
     const offset = (page - 1) * itemsPerPage;
     // http://localhost:3001/products/allproducts?page=1
 

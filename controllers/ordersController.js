@@ -4,7 +4,7 @@ const { sequelize } = require("../models");
 
 //GET ALL ORDERS FROM 1 USER
 const getOrders = async (req, res) => {
-    const user_id = req.params.user_id; // Change 'id' to 'user_id'
+    const user_id = req.params.user_id; 
     try {
       const [order] = await sequelize.query(
         `SELECT * FROM orders JOIN detailProducts ON orders.detail_id = detailProducts.id WHERE orders.user_id = ${user_id};`

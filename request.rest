@@ -75,7 +75,7 @@ DELETE http://localhost:3001/logout
 // FIND ALL PRODUCTS
 GET http://localhost:3001/products/allProducts
 
-### FIND PRODUCTS
+### FIND PRODUCTS BY CATEGORY
 GET http://localhost:3001/products/pants
 
 ###
