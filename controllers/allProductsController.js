@@ -1,7 +1,7 @@
 const express = require("express");
 const db = require("../models");
 const { sequelize } = require("../models");
-const itemsPerPage = 2; // Number of items (columns) to display per page
+const itemsPerPage = 2; 
 
 //Get All Products
 const getAllproducts = async (req, res) => {

@@ -38,7 +38,7 @@ Content-Type: application/json
 
 ###
 //DESTROY!!!
-DELETE http://localhost:3001/users/14
+DELETE http://localhost:3001/users/2
 
 ###
 //LOGIN USER ADMIN
@@ -75,7 +75,7 @@ DELETE http://localhost:3001/logout
 // FIND ALL PRODUCTS
 GET http://localhost:3001/products/allProducts
 
-### FIND PRODUCTS
+### FIND PRODUCTS BY CATEGORY
 GET http://localhost:3001/products/pants
 
 ###
@@ -127,15 +127,6 @@ Content-Type: application/json
 DELETE http://localhost:3001/products/allProducts/56
 Content-Type: application/json
 
-
-
-
-
-
-
-
-
-
 ###
 //CREATE ORDER
 
@@ -148,19 +139,13 @@ Content-Type: application/json
 }
 
 ###
-//GET ALL ORDER
+//GET ALL ORDER BY USER ID
 
 GET http://localhost:3001/orders/15
 Content-Type: application/json
 
 ###
-//GET SPECIFIC ORDER
-
-GET http://localhost:3001/orders/1
-Content-Type: application/json
-
-###
 //DELETE ORDER
 
-DELETE  http://localhost:3001/orders/21
+DELETE  http://localhost:3001/orders/11
 Content-Type: application/json

@@ -1,8 +1,6 @@
 const express = require("express");
 const { verifyUser, adminOnly } = require("../middleware/authUser");
 
-
-
 const getAccessories = require("../controllers/accessoriesController");
 const {
   getAllproducts,
