@@ -4,12 +4,12 @@ POST http://localhost:3001/users
 Content-Type: application/json
 
 {
-    "fullName": "nyx",
-    "email": "urad@gmail.com",
-    "password": "123321",
-    "phone": "12332145",
-    "confPassword": "123321",
-    "accountType": "customer"
+    "fullName": "testadmin",
+    "email": "admin@gmail.com",
+    "password": "111111",
+    "phone": "111111",
+    "confPassword": "111111",
+    "accountType": "admin"
 }
 
 ###

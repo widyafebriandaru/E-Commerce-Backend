@@ -2,7 +2,7 @@
   "development": {
     "username": "NhaZul",
     "password": "Tiberium729#",
-    "database": "final_project",
+    "database": "final_project2",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

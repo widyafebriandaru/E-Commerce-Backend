@@ -1,49 +1,41 @@
-'use strict';
+const argon2 = require('argon2');
+
+async function hashPassword(password) {
+  try {
+    const hashedPassword = await argon2.hash(password);
+    return hashedPassword;
+  } catch (error) {
+    console.error('Error hashing password:', error);
+    throw error;
+  }
+}
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+  async up(queryInterface, Sequelize) {
+    // Hash the password before inserting into the database
+    const adminPassword = '111111';
+    const hashedAdminPassword = await hashPassword(adminPassword);
 
     await queryInterface.bulkInsert('Users', [
       {
-       fullName: 'Darus',
-       email: "febriandaru23@gmail.com",
-       phone: "081532551051",
-       password: "727272",
-       accountType: "admin"
-    },
+        fullName: 'testadmin',
+        email: 'admin@gmail.com',
+        phone: '1111111111',
+        password: hashedAdminPassword,
+        accountType: 'admin'
+      },
       {
-       fullName: 'NhaZul',
-       email: "febriandaru72@gmail.com",
-       phone: "081532551052",
-       password: "232323",
-       accountType: "customer"
-    },
-      
-  ], {});
+        fullName: 'NhaZul',
+        email: 'febriandaru72@gmail.com',
+        phone: '081532551052',
+        password: '232323',
+        accountType: 'customer'
+      }
+    ], {});
   },
 
-
-   
-    
-
-
-  async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-    await queryInterface.bulkDelete('Users',null,{});
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('Users', null, {});
   }
 };
